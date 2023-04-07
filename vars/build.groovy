@@ -3,6 +3,9 @@ def installNodeJs(){
     // sh "node_version=$(node -v)"
     // echo "Success installed Node.js ${node_version}"
 }
+def installNpm(){
+    sh "sudo apt install npm"
+}
 def gitCheckout(url){
     checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: "${url}"]])
     echo "Code Cloned Successfully !"
