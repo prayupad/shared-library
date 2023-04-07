@@ -20,3 +20,10 @@ def nodeJsTest(){
     sh "npm run test"
     echo "Test Successfully !"
 }
+
+def dockerBuildAndPush(){
+    withDockerRegistry(credentialsId: 'nilanjan-docker', url: 'https://hub.docker.com/') {
+        sh "docker build -t iamnilanjan3/ecom-orders-api:${BUILD_NUMBER} ."
+        sh "docker push iamnilanjan3/ecom-orders-api:${BUILD_NUMBER}"
+    }
+}
