@@ -30,9 +30,7 @@ def dockerBuildAndPush(dockerRegistry,credentialsId,imageName){
 
 def testDSL(name){
     jobDsl scriptText: '''
-        def name = "${name}"
-        
-        pipelineJob("aaa") {
+        pipelineJob('''+"${name}"+''') {
             parameters {
                 stringParam(\'repoURL\',\'\',\'Repository URL of the Project\' )
                 stringParam(\'dockerRegistry\',\'\', \'Docker Registry Login URL\' )
