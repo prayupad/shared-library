@@ -22,7 +22,7 @@ def nodeJsTest(){
 }
 
 def dockerBuildAndPush(dockerRegistry,credentialsId,imageName){
-    withDockerRegistry(credentialsId: 'nilanjan-docker', url: "${dockerRegistry}") {
+    withDockerRegistry(credentialsId: "${credentialsId}", url: "${dockerRegistry}") {
         sh "docker build -t ${imageName}:${BUILD_NUMBER} ."
         sh "docker push ${imageName}:${BUILD_NUMBER}"
     }
