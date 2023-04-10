@@ -1,5 +1,5 @@
 def createDeploymentJob(jobName) {
-    pipelineJob("sample-seeded-pipeline-job-nilanjan-01") {
+    pipelineJob("${jobName}") {
         parameters {
             stringParam('repoURL','','Repository URL of the Project' )
           	stringParam('dockerRegistry','', 'Docker Registry Login URL' )
