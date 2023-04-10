@@ -1,7 +1,10 @@
 def createDeploymentJob(jobName) {
-    pipelineJob(jobName) {
-        parameters{
-            stringParam('repoURL','dockerRegistry','credentialsId', 'imageName' )
+    pipelineJob("sample-seeded-pipeline-job-nilanjan-01") {
+        parameters {
+            stringParam('repoURL','','Repository URL of the Project' )
+          	stringParam('dockerRegistry','', 'Docker Registry Login URL' )
+          	stringParam('credentialsId','','Credentials ID of Docker Registry Saved in Jenkins' )
+          	stringParam('imageName','','Provide Full Name of the Image to be Build' )
             
         }
         definition{
@@ -59,7 +62,7 @@ def createDeploymentJob(jobName) {
                         }
                         
                     }
-                ''').stripIndent()
+                '''.stripIndent())
                 sandbox()
             }
         }
