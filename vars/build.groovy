@@ -28,9 +28,9 @@ def dockerBuildAndPush(dockerRegistry,credentialsId,imageName){
     }
 }
 
-def testDSL(jobName){
+def testDSL(name){
     jobDsl scriptText: '''
-        def jobName = "${jobName}"
+        def name = "${name}"
         pipelineJob(jobName) {
             parameters {
                 stringParam(\'repoURL\',\'\',\'Repository URL of the Project\' )
