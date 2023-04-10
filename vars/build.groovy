@@ -21,9 +21,9 @@ def nodeJsTest(){
     echo "Test Successfully !"
 }
 
-def dockerBuildAndPush(dockerRegistry){
+def dockerBuildAndPush(dockerRegistry,credentialsId,imageName){
     withDockerRegistry(credentialsId: 'nilanjan-docker', url: "${dockerRegistry}") {
-        sh "docker build -t iamnilanjan3/ecom-orders-api:${BUILD_NUMBER} ."
-        sh "docker push iamnilanjan3/ecom-orders-api:${BUILD_NUMBER}"
+        sh "docker build -t ${imageName}:${BUILD_NUMBER} ."
+        sh "docker push ${imageName}:${BUILD_NUMBER}"
     }
 }
