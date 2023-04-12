@@ -103,13 +103,6 @@ def testDSL(name){
 def testDSL2(name, repoURL, imageName){
     jobDsl scriptText: '''
         pipelineJob('''+"\"${name}\""+''') {
-            parameters {
-                stringParam(\'repoURL\',\'\',\'Repository URL of the Project\' )
-                stringParam(\'dockerRegistry\',\'\', \'Docker Registry Login URL\' )
-                stringParam(\'credentialsId\',\'\',\'Credentials ID of Docker Registry Saved in Jenkins\' )
-                stringParam(\'imageName\',\'\',\'Provide Full Name of the Image to be Build\' )
-                
-            }
             definition{
                 cps{
                     script(\'\'\'
