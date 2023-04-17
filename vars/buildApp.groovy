@@ -1,11 +1,5 @@
 // vars/buildApp.groovy
-def call(Map params = [:]) {
-    def appName = params.appName
 
-}
-
-def call(String appName) {
-    echo "Building application: ${appName}"
     
 def installNodeJs(){
     sh "sudo apt install nodejs -y"
@@ -16,7 +10,7 @@ def installNpm(){
     sh "sudo apt install npm -y"
 }
 def gitCheckout(url){
-    sh "git clone https://github.com/Team-Denver/${appName}.git"
+    checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: "${url}"]])
     echo "Code Cloned Successfully !"
 }
 
