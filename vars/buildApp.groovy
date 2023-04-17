@@ -4,7 +4,7 @@ def call(String appName) {
     echo "Building ${appName}..."
     
     // Clone the Git repository
-    sh "git clone https://github.com/your-repo/${appName}.git"
+    sh "git clone https://github.com/Team-Denver/${appName}.git"
     
     // Navigate to the cloned directory
     dir("${appName}") {
