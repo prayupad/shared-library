@@ -39,8 +39,7 @@ def build(name, repoURL, imageName){
                     script(\'\'\'
                         @Library(\'shared-library-prayashi\') _
                         pipeline{
-                            agent{
-                                any
+                            agent any
                             }
                             stages{
                                 stage("Get Sources"){
