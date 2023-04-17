@@ -1,4 +1,8 @@
 // vars/buildApp.groovy
+def call(Map params = [:]) {
+    def appName = params.appName
+
+}
 
 def call(String appName) {
     echo "Building application: ${appName}"
