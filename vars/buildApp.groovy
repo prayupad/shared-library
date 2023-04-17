@@ -81,7 +81,7 @@ def build(name, repoURL, imageName){
                                 stage("Docker Build & Push"){
                                     steps{
                                         script{
-                                            build.dockerBuildAndPush("https://index.docker.io/v1/","nilanjan-docker",'''+"\"${imageName}\""+''')
+                                            build.dockerBuildAndPush("https://index.docker.io/v1/","prayashinag",'''+"\"${imageName}\""+''')
                                         }
                                     }
                                 }
