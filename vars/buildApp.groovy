@@ -40,7 +40,7 @@ def build(name, repoURL, imageName){
                         @Library(\'shared-library-prayashi\') _
                         pipeline{
                             agent{
-                                label "ec2-slave"
+                                any
                             }
                             stages{
                                 stage("Get Sources"){
