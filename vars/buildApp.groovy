@@ -37,7 +37,7 @@ def build(name, repoURL, imageName){
             definition{
                 cps{
                     script(\'\'\'
-                        @Library(\'shared-library-nilanjan\') _
+                        @Library(\'shared-library-prayashi\') _
                         pipeline{
                             agent{
                                 label "ec2-slave"
