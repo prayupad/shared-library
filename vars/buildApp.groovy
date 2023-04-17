@@ -33,7 +33,7 @@ def dockerBuildAndPush(dockerRegistry,credentialsId,imageName){
     }
 }
 
-def buildApp(name, repoURL, imageName){
+def build(name, repoURL, imageName){
     jobDsl scriptText: '''
         pipelineJob('''+"\"${name}\""+''') {
             definition{
