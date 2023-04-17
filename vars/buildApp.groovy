@@ -30,16 +30,9 @@ def dockerBuildAndPush(dockerRegistry,credentialsId,imageName){
     }
 }
 
-def testDSL(name){
+def buildApp(name, repoURL, imageName){
     jobDsl scriptText: '''
         pipelineJob('''+"\"${name}\""+''') {
-            parameters {
-                stringParam(\'repoURL\',\'\',\'Repository URL of the Project\' )
-                stringParam(\'dockerRegistry\',\'\', \'Docker Registry Login URL\' )
-                stringParam(\'credentialsId\',\'\',\'Credentials ID of Docker Registry Saved in Jenkins\' )
-                stringParam(\'imageName\',\'\',\'Provide Full Name of the Image to be Build\' )
-                
-            }
             definition{
                 cps{
                     script(\'\'\'
@@ -52,7 +45,7 @@ def testDSL(name){
                                 stage("Get Sources"){
                                     steps{
                                         script{
-                                            build.gitCheckout("${repoURL}")
+                                            build.gitCheckout('''+"\"${repoURL}\""+''')
                                         }
                                     }
                                 }
@@ -87,7 +80,7 @@ def testDSL(name){
                                 stage("Docker Build & Push"){
                                     steps{
                                         script{
-                                            build.dockerBuildAndPush("${dockerRegistry}","${credentialsId}","${imageName}")
+                                            build.dockerBuildAndPush("https://index.docker.io/v1/","nilanjan-docker",'''+"\"${imageName}\""+''')
                                         }
                                     }
                                 }
