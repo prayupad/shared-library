@@ -1,5 +1,8 @@
 // vars/buildApp.groovy
 
+def call(String appName) {
+    echo "Building application: ${appName}"
+    
 def installNodeJs(){
     sh "sudo apt install nodejs -y"
     // sh "node_version=$(node -v)"
