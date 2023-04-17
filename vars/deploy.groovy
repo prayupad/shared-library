@@ -1,9 +1,6 @@
 def applyk8sManifest(manifestPath)
     sh "kubectl apply -f deployment.yml"
 
-def applyk8sManifest(manifestPath)
-    sh "kubectl apply -f deployment.yml"
-
 def deployToKubernetes(name, appName){
     jobDsl scriptText: '''
         pipelineJob('''+"\"${name}\""+''') {
