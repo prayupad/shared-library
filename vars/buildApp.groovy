@@ -96,6 +96,4 @@ def build(name, repoURL, imageName){
         }'''.stripIndent()
 }
     
-    // Clean up the cloned repository
-    sh "rm -rf ${appName}"
-}
+
